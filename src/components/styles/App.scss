@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.pokedex {
+    display: block;
+    max-width: 420px;
+    margin: auto;
+
+    .top-bar,
+    .bottom-bar {
+        background-color: #c40c24;
+        border: 1px solid #52181c;
+        height: 210px;
+    }
+    .top-bar {
+        border-radius: 10px 10px 0 0;
+        border-bottom:5px solid black;
+    }
+    .bottom-bar {
+        border-radius: 0px 0px 10px 10px;
+        border-top:5px solid black;
+    }
+
+    .visor {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        background-color: #e0f5fe94;
+        border-right: 5px solid white;
+        border-left: 5px solid white;
+        transition: height .3s linear;
+        height: 0;
+        &.active {
+            transition: height .3s linear;
+            height: 420px;
+        }
+        &__action-button {
+            background: white;
+            border: 1px solid #b4e5ec;
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            position: absolute;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 15px;
+        width: 100%;
+        box-sizing: border-box;
+        .search {
+            height: 44px;
+            border: 0;
+            border-bottom: 2px solid #52181c;
+            width: 100%;
+            font-size: 17px;
+            padding: 0 5px;
+            box-sizing: border-box;
+            &:focus {
+                outline: none;
+            }
+            &__btn {
+                border: 0;
+                border-top: 2px solid white;
+                border-bottom: 2px solid #52181c;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .thumbnail__container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        height: calc( 100% - 50px);
+        overflow: auto;
+
+        .thumbnail__box {
+            width: calc( 100% / 3);
+            text-align: center;
+            margin-bottom: 30px;
+            h3, h4 {
+                padding: 0;
+                margin: 0;
+                font-weight: 400;
+                small {
+                    font-size: 0.8rem;
+                    color: #afacac;
+                }
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            h4 {
+                font-size: 1.3rem;
+            }
+
+        }
+    }
+}
