@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import Thumbnail from './Thumbnail'
+import api from '../api/api';
 
 class Visor extends React.Component {
     constructor (props) {
@@ -25,12 +26,11 @@ class Visor extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.text}`)
-            .then(res => res.json())
+        api.get(this.state.text)
             .then(
                 (result) => {
                     this.setState({
-                        items: [result]
+                        items: [result.data]
                     })
                 },
                 (error) => {
@@ -42,11 +42,10 @@ class Visor extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://pokeapi.co/api/v2/pokemon")
-            .then(res => res.json())
+        api.get()
             .then(
                 (result) => {
-                    result.results.map(item => {
+                    result.data.results.map(item => {
                         fetch(item.url)
                             .then(res => res.json())
                             .then(pokemon => {
