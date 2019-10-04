@@ -2,6 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Thumbnail from './Thumbnail'
 import api from '../api/api';
+import Detalhes from './Detalhes';
 
 class Visor extends React.Component {
     constructor (props) {
@@ -13,9 +14,6 @@ class Visor extends React.Component {
             error: null,
             items: []
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // Pesquisa pokemon
@@ -90,6 +88,8 @@ class Visor extends React.Component {
                             />
                         )) }
                     </div>
+
+                    <Detalhes />
                 </React.Fragment>
             )
         }
